@@ -1,7 +1,7 @@
 defmodule Umbrellatest.StateWorker do
   use GenServer
 
-  @vsn 4
+  @vsn 5
 
   def start_link do
     GenServer.start_link(__MODULE__, :ok, name: __MODULE__)
@@ -24,7 +24,7 @@ defmodule Umbrellatest.StateWorker do
 
     Logger.warn("changing code version 4")
     Logger.warn("with extra #{extra}")
-    {:ok, "now version 4"}
+    {:ok, "now version 5"}
   end
 
   def code_change(vsn, state, extra) do
