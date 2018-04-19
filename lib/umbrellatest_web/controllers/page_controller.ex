@@ -8,4 +8,14 @@ defmodule UmbrellatestWeb.PageController do
     |> put_status(:ok)
     |> text(state)
   end
+
+  def show(conn, %{"id" => "1"}) do
+    state = Umbrellatest.Another.fetch()
+
+    conn
+    |> put_status(:ok)
+    |> text(state)
+
+  end
 end
+

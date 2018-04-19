@@ -10,7 +10,8 @@ defmodule Umbrellatest.Application do
     children = [
       # Start the endpoint when the application starts
       supervisor(UmbrellatestWeb.Endpoint, []),
-      worker(Umbrellatest.StateWorker, [])
+      worker(Umbrellatest.StateWorker, []),
+      worker(Umbrellatest.Another, [])
       # Start your own worker by calling: Umbrellatest.Worker.start_link(arg1, arg2, arg3)
       # worker(Umbrellatest.Worker, [arg1, arg2, arg3]),
     ]
