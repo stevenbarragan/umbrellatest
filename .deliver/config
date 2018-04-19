@@ -2,7 +2,7 @@
 
 APP="umbrellatest" # name of your release
 
-AUTO_VERSION=git-revision
+# AUTO_VERSION=git-revision
 
 BUILD_HOST="35.196.12.156" # host where to build the release
 BUILD_USER="stevenbarragan" # local user at build host
