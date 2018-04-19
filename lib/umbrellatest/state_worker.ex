@@ -22,7 +22,8 @@ defmodule Umbrellatest.StateWorker do
   def code_change(4, state, extra) do
     require Logger
 
-    Logger.warn("changing code version #{vsn}")
+    Logger.warn("changing code version 4")
+    Logger.warn("with extra #{extra}")
     {:ok, "now version 4"}
   end
 
