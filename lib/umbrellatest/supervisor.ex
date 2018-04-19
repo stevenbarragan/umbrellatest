@@ -8,7 +8,21 @@ defmodule U.Supervisor do
   def init(:ok) do
     children = [
       {Umbrellatest.StateWorker, []},
-      {Umbrellatest.Another, []}
+      {Umbrellatest.Another, []},
+    ]
+
+    Supervisor.init(children, strategy: :one_for_one)
+  end
+
+  def init(args) do
+    require Logger
+
+    Logger.warn("calling supervisor init with #{args})")
+
+    children = [
+      {Umbrellatest.StateWorker, []},
+      {Umbrellatest.Another, []},
+      {Umbrellatest.YetAnother, []},
     ]
 
     Supervisor.init(children, strategy: :one_for_one)
