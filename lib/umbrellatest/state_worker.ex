@@ -16,4 +16,11 @@ defmodule Umbrellatest.StateWorker do
   def handle_call(:fetch, _from, state) do
     {:reply, state, state}
   end
+
+  def code_change(vsn, state, extra) do
+    require Logger
+
+    Logger.warn("changing code version #{vsn}")
+    {:ok, "doug"}
+  end
 end
