@@ -5,14 +5,14 @@ defmodule U.Supervisor do
     Supervisor.start_link(__MODULE__, :ok, name: __MODULE__)
   end
 
-  def init(:ok) do
-    children = [
-      {Umbrellatest.StateWorker, []},
-      {Umbrellatest.Another, []},
-    ]
-
-    Supervisor.init(children, strategy: :one_for_one)
-  end
+  # def init(:ok) do
+  #   children = [
+  #     {Umbrellatest.StateWorker, []},
+  #     {Umbrellatest.Another, []},
+  #   ]
+  #
+  #   Supervisor.init(children, strategy: :one_for_one)
+  # end
 
   def init(args) do
     require Logger
