@@ -4,7 +4,7 @@ defmodule Umbrellatest.Mixfile do
   def project do
     [
       app: :umbrellatest,
-      version: "0.0.2",
+      version: "0.0.4",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,

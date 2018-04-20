@@ -1,0 +1,7 @@
+#!/bin/zsh
+# below NODE_PORT setting assumes there is only one node running
+HOST=35.196.12.156
+EPMD_PORT=$(ssh "${HOST}" "epmd -names" | grep epmd | sed 's/[^0-9]//g')
+NODE_PORT=$(ssh "${HOST}" "epmd -names" | grep umbrellatest | sed 's/[^0-9]//g')
+printf "HOST='${HOST}'\nEPMD_PORT='${EPMD_PORT}'\nNODE_PORT='${NODE_PORT}'\n"
+ssh -N -L "${EPMD_PORT}:localhost:${EPMD_PORT}" -L "${NODE_PORT}:localhost:${NODE_PORT}" "${HOST}"
