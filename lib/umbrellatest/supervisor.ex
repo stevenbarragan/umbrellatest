@@ -9,10 +9,11 @@ defmodule U.Supervisor do
     children = [
       {Umbrellatest.StateWorker, []},
       {Umbrellatest.Another, []},
+      {Umbrellatest.YetAnother, []},
+      {Umbrellatest.AnotherOne, []}
     ]
 
     Supervisor.init(children, strategy: :one_for_one)
-    |> IO.inspect
   end
 
   # during hot code upgrade
@@ -21,10 +22,17 @@ defmodule U.Supervisor do
 
     Logger.warn("calling supervisor init ")
 
-    child = {Umbrellatest.YetAnother, []}
+    child = {Umbrellatest.AnotherOne, []}
 
     Supervisor.start_child(__MODULE__, child)
 
-    Supervisor.init([child], strategy: :one_for_one)
+    children = [
+      {Umbrellatest.AnotherOne, []}
+    ]
+
+    Supervisor.init(children, strategy: :one_for_one)
+    |> IO.inspect()
+
+    #Supervisor.init([child], strategy: :one_for_one)
   end
 end
