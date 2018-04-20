@@ -21,10 +21,10 @@ defmodule U.Supervisor do
 
     Logger.warn("calling supervisor init ")
 
-    Supervisor.start_child(__MODULE__, {Umbrellatest.YetAnother, []})
+    child = {Umbrellatest.YetAnother, []}
 
-    spec = Umbrellatest.YetAnother.child_spec([])
+    Supervisor.start_child(__MODULE__, child)
 
-    {:ok, {[], spec}}
+    Supervisor.init([child], strategy: :one_for_one)
   end
 end
