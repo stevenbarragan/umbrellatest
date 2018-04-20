@@ -12,6 +12,7 @@ defmodule U.Supervisor do
     ]
 
     Supervisor.init(children, strategy: :one_for_one)
+    |> IO.inspect
   end
 
   # during hot code upgrade
@@ -21,5 +22,9 @@ defmodule U.Supervisor do
     Logger.warn("calling supervisor init ")
 
     Supervisor.start_child(__MODULE__, {Umbrellatest.YetAnother, []})
+
+    spec = Umbrellatest.YetAnother.child_spec([])
+
+    {:ok, {[], spec}}
   end
 end
